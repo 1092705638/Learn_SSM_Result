@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Learn_SSM_Result:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Learn_SSM_Result_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Learn_SSM_Result/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Learn_SSM_Result" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

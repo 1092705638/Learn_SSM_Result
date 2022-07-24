@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <!--外部引入JDBC-->
+    <properties resource="jdbc.properties"></properties>
+
+    <!--修改类别名-->
+    <typeAliases>
+        <package name="com.mybatis.pojo.User"></package>
+        <!--        <typeAlias type="com.pojo.User" alias="User"></typeAlias>-->
+    </typeAliases>
+
+    <!--设置连接数据库的环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入映射文件-->
+    <mappers>
+        <!--        <mapper resource="mapper/UserMapper.xml"/>-->
+        <!--
+       以包为单位，将包下所有的映射文件引入核心配置文件
+       注意：
+           1. 此方式必须保证mapper接口和mapper映射文件必须在相同的包下
+           2. mapper接口要和mapper映射文件的名字一致
+       -->
+        <package name="com.mybatis.mapper"/>
+    </mappers>
+</configuration>

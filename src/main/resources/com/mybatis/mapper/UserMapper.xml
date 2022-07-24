@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.UserMapper">
+
+    <!--查询列表字段封装-->
+    <sql id="selectName">
+    id,name,age,address
+</sql>
+
+    <!--插入用户-->
+    <!-- int insertuser();-->
+    <insert id="insertuser">
+
+        insert into user values (null,'小明',25,'江苏南京');
+
+    </insert>
+
+
+    <insert id="insertuserKey" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+
+        insert into user values (null ,#{name},${age},#{address});
+
+    </insert>
+
+    <!--查询所有用户-->
+    <!-- List<User> selectAllUser();-->
+    <select id="selectAllUser" resultType="com.mybatis.pojo.User">
+        select
+        <include refid="selectName"/>
+        from user
+
+    </select>
+    <!--批量查询-->
+    <select id="selectByIds" resultType="java.util.Map" parameterType="java.lang.String">
+
+        select
+        <include refid="selectName"/>
+        from ssm_db.user
+        where id in (${ids})
+    </select>
+
+    <!--根据id查询用户的id：User selectById(int id);-->
+    <select id="selectById" resultType="com.mybatis.pojo.User">
+        select
+        <include refid="selectName"/>
+        from ssm_db.user
+        where id=#{id}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h1>表单</h1>
+
+<!--/*@thymesVar id="msg" type="java.lang.String"*/-->
+<!--<div th:text="${msg}+JavaWeb"></div>-->
+<div>
+    <p th:text="${msg.getName()}"></p>
+</div>
+<form action="" method="post"><br>
+    姓名: <input type="text" name="name"/><br>
+    年龄: <input type="text" name="age"/><br>
+    地址: <input type="text" name="address"/><br>
+    <input type="submit" value="注册">
+</form>
+
+</body>
+</html>
